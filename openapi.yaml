@@ -570,6 +570,16 @@ paths:
             location.
           schema:
             type: string
+        - name: offset
+          in: query
+          description: The number of files to skip before starting to collect the listing
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: The numbers of files to return
+          schema:
+            type: integer
       responses:
         '200':
           description: ''

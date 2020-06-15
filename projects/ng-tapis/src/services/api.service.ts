@@ -1435,6 +1435,16 @@ export class ApiService extends BaseService {
      */
     filePath: string;
 
+    /**
+     * The number of files to skip before starting to collect the listing
+     */
+    offset?: number;
+
+    /**
+     * The numbers of files to return
+     */
+    limit?: number;
+
   }): Observable<StrictHttpResponse<MultipleRemoteFileResponse>> {
 
     const rb = new RequestBuilder(this.rootUrl, ApiService.FilesListPath, 'get');
@@ -1442,6 +1452,8 @@ export class ApiService extends BaseService {
 
       rb.path('systemId', params.systemId);
       rb.path('filePath', params.filePath);
+      rb.query('offset', params.offset);
+      rb.query('limit', params.limit);
 
     }
     return this.http.request(rb.build({
@@ -1474,6 +1486,16 @@ export class ApiService extends BaseService {
      * The path of the file relative to the user&#x27;s default storage location.
      */
     filePath: string;
+
+    /**
+     * The number of files to skip before starting to collect the listing
+     */
+    offset?: number;
+
+    /**
+     * The numbers of files to return
+     */
+    limit?: number;
 
   }): Observable<MultipleRemoteFileResponse> {
 
