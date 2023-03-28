@@ -1,4 +1,4 @@
-## ng-tapis@2.1.12
+## ng-tapis@2.1.14
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install ng-tapis@2.1.12 --save
+npm install ng-tapis@2.1.14 --save
 ```
 
 _without publishing (not recommended):_
