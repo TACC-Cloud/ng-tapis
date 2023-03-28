@@ -13,7 +13,7 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent, HttpParameterCodec, HttpContext 
+         HttpResponse, HttpEvent, HttpParameterCodec
         }       from '@angular/common/http';
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
@@ -207,10 +207,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleApplicationResponse>;
-    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleApplicationResponse>>;
-    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleApplicationResponse>>;
-    public appsAddUpdate(applicationRequest: ApplicationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleApplicationResponse>;
+    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleApplicationResponse>>;
+    public appsAddUpdate(applicationRequest: ApplicationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleApplicationResponse>>;
+    public appsAddUpdate(applicationRequest: ApplicationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (applicationRequest === null || applicationRequest === undefined) {
             throw new Error('Required parameter applicationRequest was null or undefined when calling appsAddUpdate.');
         }
@@ -248,10 +248,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -277,7 +273,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/`;
         return this.httpClient.request<SingleApplicationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: applicationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -295,10 +290,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsDelete(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public appsDelete(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public appsDelete(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public appsDelete(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsDelete(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public appsDelete(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public appsDelete(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public appsDelete(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsDelete.');
         }
@@ -336,10 +331,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -356,7 +347,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyApplicationResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -374,10 +364,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleApplicationResponse>;
-    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleApplicationResponse>>;
-    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleApplicationResponse>>;
-    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleApplicationResponse>;
+    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleApplicationResponse>>;
+    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleApplicationResponse>>;
+    public appsEdit(appId: string, applicationOperationRequest: ApplicationOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsEdit.');
         }
@@ -418,10 +408,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -447,7 +433,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleApplicationResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: applicationOperationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -465,10 +450,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsFormByName(uniqueName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ApplicationFormResponse>;
-    public appsFormByName(uniqueName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ApplicationFormResponse>>;
-    public appsFormByName(uniqueName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ApplicationFormResponse>>;
-    public appsFormByName(uniqueName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsFormByName(uniqueName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<ApplicationFormResponse>;
+    public appsFormByName(uniqueName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<ApplicationFormResponse>>;
+    public appsFormByName(uniqueName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<ApplicationFormResponse>>;
+    public appsFormByName(uniqueName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uniqueName === null || uniqueName === undefined) {
             throw new Error('Required parameter uniqueName was null or undefined when calling appsFormByName.');
         }
@@ -506,10 +491,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -526,7 +507,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "uniqueName", value: uniqueName, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/form`;
         return this.httpClient.request<ApplicationFormResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -543,10 +523,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsGet(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleApplicationResponse>;
-    public appsGet(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleApplicationResponse>>;
-    public appsGet(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleApplicationResponse>>;
-    public appsGet(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsGet(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleApplicationResponse>;
+    public appsGet(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleApplicationResponse>>;
+    public appsGet(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleApplicationResponse>>;
+    public appsGet(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsGet.');
         }
@@ -584,10 +564,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -604,7 +580,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleApplicationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -623,10 +598,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleApplicationResponse>;
-    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleApplicationResponse>>;
-    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleApplicationResponse>>;
-    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleApplicationResponse>;
+    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleApplicationResponse>>;
+    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleApplicationResponse>>;
+    public appsGetByTag(tag: string, publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (tag === null || tag === undefined) {
             throw new Error('Required parameter tag was null or undefined when calling appsGetByTag.');
         }
@@ -674,10 +649,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -694,7 +665,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/tag/${this.configuration.encodeParam({name: "tag", value: tag, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleApplicationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -713,10 +683,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleApplicationResponse>;
-    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleApplicationResponse>>;
-    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleApplicationResponse>>;
-    public appsList(publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleApplicationResponse>;
+    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleApplicationResponse>>;
+    public appsList(publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleApplicationResponse>>;
+    public appsList(publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (publicOnly !== undefined && publicOnly !== null) {
@@ -761,10 +731,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -781,7 +747,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/`;
         return this.httpClient.request<MultipleApplicationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -801,10 +766,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleApplicationResponse>;
-    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleApplicationResponse>>;
-    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleApplicationResponse>>;
-    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleApplicationResponse>;
+    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleApplicationResponse>>;
+    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleApplicationResponse>>;
+    public appsListByName(name: string, publicOnly?: string, privateOnly?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling appsListByName.');
         }
@@ -852,10 +817,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -872,7 +833,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/name/${this.configuration.encodeParam({name: "name", value: name, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleApplicationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -891,10 +851,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public appsPemsAddUpdate(appId: string, applicationPermissionRequest: ApplicationPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsAddUpdate.');
         }
@@ -935,10 +895,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -964,7 +920,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyApplicationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: applicationPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -984,10 +939,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public appsPemsAddUpdateByUsername(appId: string, username: string, applicationPermissionRequest: ApplicationPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsAddUpdateByUsername.');
         }
@@ -1031,10 +986,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -1060,7 +1011,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyApplicationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: applicationPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1078,10 +1028,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsDelete(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public appsPemsDelete(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public appsPemsDelete(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public appsPemsDelete(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsDelete(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public appsPemsDelete(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public appsPemsDelete(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public appsPemsDelete(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsDelete.');
         }
@@ -1119,10 +1069,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1139,7 +1085,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyApplicationResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1157,10 +1102,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public appsPemsDeleteByUsername(appId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public appsPemsDeleteByUsername(appId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public appsPemsDeleteByUsername(appId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsDeleteByUsername.');
         }
@@ -1201,10 +1146,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1221,7 +1162,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyApplicationResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1238,10 +1178,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsList(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ApplicationPermissionResponse>;
-    public appsPemsList(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ApplicationPermissionResponse>>;
-    public appsPemsList(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ApplicationPermissionResponse>>;
-    public appsPemsList(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsList(appId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<ApplicationPermissionResponse>;
+    public appsPemsList(appId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<ApplicationPermissionResponse>>;
+    public appsPemsList(appId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<ApplicationPermissionResponse>>;
+    public appsPemsList(appId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsList.');
         }
@@ -1279,10 +1219,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1299,7 +1235,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<ApplicationPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1317,10 +1252,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsPemsListByUsername(appId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ApplicationPermissionResponse>;
-    public appsPemsListByUsername(appId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ApplicationPermissionResponse>>;
-    public appsPemsListByUsername(appId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ApplicationPermissionResponse>>;
-    public appsPemsListByUsername(appId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsPemsListByUsername(appId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<ApplicationPermissionResponse>;
+    public appsPemsListByUsername(appId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<ApplicationPermissionResponse>>;
+    public appsPemsListByUsername(appId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<ApplicationPermissionResponse>>;
+    public appsPemsListByUsername(appId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsPemsListByUsername.');
         }
@@ -1361,10 +1296,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1381,7 +1312,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<ApplicationPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1399,10 +1329,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleApplicationResponse>;
-    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleApplicationResponse>>;
-    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleApplicationResponse>>;
-    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleApplicationResponse>;
+    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleApplicationResponse>>;
+    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleApplicationResponse>>;
+    public appsUpdate(appId: string, applicationRequest: ApplicationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (appId === null || appId === undefined) {
             throw new Error('Required parameter appId was null or undefined when calling appsUpdate.');
         }
@@ -1443,10 +1373,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -1472,7 +1398,6 @@ export class DefaultService {
         let localVarPath = `/apps/v2/${this.configuration.encodeParam({name: "appId", value: appId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleApplicationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: applicationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1492,10 +1417,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyRemoteFileResponse>;
-    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
-    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
-    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyRemoteFileResponse>;
+    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
+    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
+    public filesActions(systemId: string, filePath: string, fileOperationRequest: FileOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling filesActions.');
         }
@@ -1539,10 +1464,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -1568,7 +1489,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/media/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyRemoteFileResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: fileOperationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1587,10 +1507,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesDelete(systemId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyRemoteFileResponse>;
-    public filesDelete(systemId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
-    public filesDelete(systemId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
-    public filesDelete(systemId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesDelete(systemId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyRemoteFileResponse>;
+    public filesDelete(systemId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
+    public filesDelete(systemId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
+    public filesDelete(systemId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling filesDelete.');
         }
@@ -1631,10 +1551,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1651,7 +1567,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/media/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyRemoteFileResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1669,10 +1584,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesDownload(systemId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public filesDownload(systemId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public filesDownload(systemId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public filesDownload(systemId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public filesDownload(systemId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined,}): Observable<any>;
+    public filesDownload(systemId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined,}): Observable<HttpResponse<any>>;
+    public filesDownload(systemId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined,}): Observable<HttpEvent<any>>;
+    public filesDownload(systemId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined,}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling filesDownload.');
         }
@@ -1712,10 +1627,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1732,7 +1643,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/media/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<any>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1750,10 +1660,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesHistory(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<FileHistoryResponse>;
-    public filesHistory(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<FileHistoryResponse>>;
-    public filesHistory(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<FileHistoryResponse>>;
-    public filesHistory(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesHistory(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<FileHistoryResponse>;
+    public filesHistory(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<FileHistoryResponse>>;
+    public filesHistory(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<FileHistoryResponse>>;
+    public filesHistory(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesHistory.');
         }
@@ -1794,10 +1704,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1814,7 +1720,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/history/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<FileHistoryResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1831,10 +1736,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesHistoryDefault(filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<FileHistoryResponse>;
-    public filesHistoryDefault(filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<FileHistoryResponse>>;
-    public filesHistoryDefault(filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<FileHistoryResponse>>;
-    public filesHistoryDefault(filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesHistoryDefault(filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<FileHistoryResponse>;
+    public filesHistoryDefault(filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<FileHistoryResponse>>;
+    public filesHistoryDefault(filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<FileHistoryResponse>>;
+    public filesHistoryDefault(filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesHistoryDefault.');
         }
@@ -1872,10 +1777,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -1892,7 +1793,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/history/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<FileHistoryResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -1915,10 +1815,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleRemoteFileResponse>;
-    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleRemoteFileResponse>>;
-    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleRemoteFileResponse>>;
-    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleRemoteFileResponse>;
+    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleRemoteFileResponse>>;
+    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleRemoteFileResponse>>;
+    public filesImport(systemId: string, filePath: string, fileType?: string, callbackURL?: string, fileName?: string, urlToIngest?: string, fileToUpload?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling filesImport.');
         }
@@ -1959,10 +1859,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -2010,7 +1906,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/media/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleRemoteFileResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2031,10 +1926,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleRemoteFileResponse>;
-    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleRemoteFileResponse>>;
-    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleRemoteFileResponse>>;
-    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleRemoteFileResponse>;
+    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleRemoteFileResponse>>;
+    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleRemoteFileResponse>>;
+    public filesList(systemId: string, filePath: string, offset?: number, limit?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling filesList.');
         }
@@ -2085,10 +1980,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2105,7 +1996,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/listings/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleRemoteFileResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2124,10 +2014,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultiplePermissionResponse>;
-    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultiplePermissionResponse>>;
-    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultiplePermissionResponse>>;
-    public filesPemsAddUpdate(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultiplePermissionResponse>;
+    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultiplePermissionResponse>>;
+    public filesPemsAddUpdate(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultiplePermissionResponse>>;
+    public filesPemsAddUpdate(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesPemsAddUpdate.');
         }
@@ -2168,10 +2058,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2188,7 +2074,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/pems/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultiplePermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2207,10 +2092,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyRemoteFileResponse>;
-    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
-    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
-    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyRemoteFileResponse>;
+    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
+    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
+    public filesPemsAddUpdateByUser(filePath: string, systemId: string, filePermissionRequest: FilePermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesPemsAddUpdateByUser.');
         }
@@ -2254,10 +2139,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -2283,7 +2164,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/pems/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyRemoteFileResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: filePermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2301,10 +2181,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesPemsDefault(filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultiplePermissionResponse>;
-    public filesPemsDefault(filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultiplePermissionResponse>>;
-    public filesPemsDefault(filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultiplePermissionResponse>>;
-    public filesPemsDefault(filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesPemsDefault(filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultiplePermissionResponse>;
+    public filesPemsDefault(filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultiplePermissionResponse>>;
+    public filesPemsDefault(filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultiplePermissionResponse>>;
+    public filesPemsDefault(filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesPemsDefault.');
         }
@@ -2342,10 +2222,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2362,7 +2238,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/pems/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultiplePermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2380,10 +2255,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyRemoteFileResponse>;
-    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
-    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
-    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyRemoteFileResponse>;
+    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
+    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
+    public filesPemsDefaultAddUpdate(filePath: string, filePermissionRequest: FilePermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesPemsDefaultAddUpdate.');
         }
@@ -2424,10 +2299,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -2453,7 +2324,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/pems/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyRemoteFileResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: filePermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2472,10 +2342,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public filesPemsDelete(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyRemoteFileResponse>;
-    public filesPemsDelete(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
-    public filesPemsDelete(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
-    public filesPemsDelete(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public filesPemsDelete(filePath: string, systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyRemoteFileResponse>;
+    public filesPemsDelete(filePath: string, systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyRemoteFileResponse>>;
+    public filesPemsDelete(filePath: string, systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyRemoteFileResponse>>;
+    public filesPemsDelete(filePath: string, systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (filePath === null || filePath === undefined) {
             throw new Error('Required parameter filePath was null or undefined when calling filesPemsDelete.');
         }
@@ -2516,10 +2386,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2536,7 +2402,6 @@ export class DefaultService {
         let localVarPath = `/files/v2/pems/system/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyRemoteFileResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2554,10 +2419,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleJobResponse>;
-    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleJobResponse>>;
-    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleJobResponse>>;
-    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleJobResponse>;
+    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleJobResponse>>;
+    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleJobResponse>>;
+    public jobsActions(jobId: string, jobOperationRequest: JobOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsActions.');
         }
@@ -2598,10 +2463,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -2627,7 +2488,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleJobResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: jobOperationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2645,10 +2505,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsCreate(jobRequest: JobRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleJobResponse>;
-    public jobsCreate(jobRequest: JobRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleJobResponse>>;
-    public jobsCreate(jobRequest: JobRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleJobResponse>>;
-    public jobsCreate(jobRequest: JobRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsCreate(jobRequest: JobRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleJobResponse>;
+    public jobsCreate(jobRequest: JobRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleJobResponse>>;
+    public jobsCreate(jobRequest: JobRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleJobResponse>>;
+    public jobsCreate(jobRequest: JobRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobRequest === null || jobRequest === undefined) {
             throw new Error('Required parameter jobRequest was null or undefined when calling jobsCreate.');
         }
@@ -2686,10 +2546,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -2715,7 +2571,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/`;
         return this.httpClient.request<SingleJobResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: jobRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -2733,10 +2588,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsDelete(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyJobResponse>;
-    public jobsDelete(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyJobResponse>>;
-    public jobsDelete(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyJobResponse>>;
-    public jobsDelete(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsDelete(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyJobResponse>;
+    public jobsDelete(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyJobResponse>>;
+    public jobsDelete(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyJobResponse>>;
+    public jobsDelete(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsDelete.');
         }
@@ -2774,10 +2629,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2794,7 +2645,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyJobResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2811,10 +2661,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsGet(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleJobResponse>;
-    public jobsGet(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleJobResponse>>;
-    public jobsGet(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleJobResponse>>;
-    public jobsGet(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsGet(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleJobResponse>;
+    public jobsGet(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleJobResponse>>;
+    public jobsGet(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleJobResponse>>;
+    public jobsGet(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsGet.');
         }
@@ -2852,10 +2702,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2872,7 +2718,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleJobResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2889,10 +2734,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsHistory(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<JobHistoryResponse>;
-    public jobsHistory(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<JobHistoryResponse>>;
-    public jobsHistory(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<JobHistoryResponse>>;
-    public jobsHistory(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsHistory(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<JobHistoryResponse>;
+    public jobsHistory(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<JobHistoryResponse>>;
+    public jobsHistory(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<JobHistoryResponse>>;
+    public jobsHistory(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsHistory.');
         }
@@ -2930,10 +2775,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -2950,7 +2791,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/history`;
         return this.httpClient.request<JobHistoryResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -2966,10 +2806,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleJobResponse>;
-    public jobsList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleJobResponse>>;
-    public jobsList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleJobResponse>>;
-    public jobsList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleJobResponse>;
+    public jobsList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleJobResponse>>;
+    public jobsList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleJobResponse>>;
+    public jobsList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -3004,10 +2844,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3024,7 +2860,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/`;
         return this.httpClient.request<MultipleJobResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3042,10 +2877,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsOutputs(jobId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleRemoteFileResponse>;
-    public jobsOutputs(jobId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleRemoteFileResponse>>;
-    public jobsOutputs(jobId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleRemoteFileResponse>>;
-    public jobsOutputs(jobId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsOutputs(jobId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleRemoteFileResponse>;
+    public jobsOutputs(jobId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleRemoteFileResponse>>;
+    public jobsOutputs(jobId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleRemoteFileResponse>>;
+    public jobsOutputs(jobId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsOutputs.');
         }
@@ -3086,10 +2921,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3106,7 +2937,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/ouputs/listings/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleRemoteFileResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3124,10 +2954,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream', context?: HttpContext}): Observable<Blob>;
-    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream', context?: HttpContext}): Observable<HttpResponse<Blob>>;
-    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream', context?: HttpContext}): Observable<HttpEvent<Blob>>;
-    public jobsOutputsDownload(jobId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/octet-stream', context?: HttpContext}): Observable<any> {
+    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream',}): Observable<Blob>;
+    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream',}): Observable<HttpResponse<Blob>>;
+    public jobsOutputsDownload(jobId: string, filePath: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/octet-stream',}): Observable<HttpEvent<Blob>>;
+    public jobsOutputsDownload(jobId: string, filePath: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/octet-stream',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsOutputsDownload.');
         }
@@ -3168,16 +2998,11 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/ouputs/media/${this.configuration.encodeParam({name: "filePath", value: filePath, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: "blob",
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3194,10 +3019,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPems(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<JobPermissionResponse>;
-    public jobsPems(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<JobPermissionResponse>>;
-    public jobsPems(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<JobPermissionResponse>>;
-    public jobsPems(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPems(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<JobPermissionResponse>;
+    public jobsPems(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<JobPermissionResponse>>;
+    public jobsPems(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<JobPermissionResponse>>;
+    public jobsPems(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsPems.');
         }
@@ -3235,10 +3060,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3255,7 +3076,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<JobPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3273,10 +3093,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyJobResponse>;
-    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyJobResponse>>;
-    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyJobResponse>>;
-    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyJobResponse>;
+    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyJobResponse>>;
+    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyJobResponse>>;
+    public jobsPemsAddUpdate(jobId: string, jobPermissionRequest: JobPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsPemsAddUpdate.');
         }
@@ -3317,10 +3137,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -3346,7 +3162,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyJobResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: jobPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -3365,10 +3180,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPemsByUser(jobId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<JobPermissionResponse>;
-    public jobsPemsByUser(jobId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<JobPermissionResponse>>;
-    public jobsPemsByUser(jobId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<JobPermissionResponse>>;
-    public jobsPemsByUser(jobId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPemsByUser(jobId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<JobPermissionResponse>;
+    public jobsPemsByUser(jobId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<JobPermissionResponse>>;
+    public jobsPemsByUser(jobId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<JobPermissionResponse>>;
+    public jobsPemsByUser(jobId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsPemsByUser.');
         }
@@ -3409,10 +3224,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3429,7 +3240,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<JobPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3448,10 +3258,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyJobResponse>;
-    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyJobResponse>>;
-    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyJobResponse>>;
-    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyJobResponse>;
+    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyJobResponse>>;
+    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyJobResponse>>;
+    public jobsPemsByUserAddUpdate(jobId: string, username: string, jobPermissionRequest: JobPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsPemsByUserAddUpdate.');
         }
@@ -3495,10 +3305,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -3524,7 +3330,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyJobResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: jobPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -3543,10 +3348,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyApplicationResponse>;
-    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyApplicationResponse>>;
-    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyApplicationResponse>>;
-    public jobsPemsByUserDelete(username: string, jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyApplicationResponse>;
+    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyApplicationResponse>>;
+    public jobsPemsByUserDelete(username: string, jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyApplicationResponse>>;
+    public jobsPemsByUserDelete(username: string, jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling jobsPemsByUserDelete.');
         }
@@ -3587,10 +3392,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3607,7 +3408,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyApplicationResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3624,10 +3424,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsPemsDelete(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyJobResponse>;
-    public jobsPemsDelete(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyJobResponse>>;
-    public jobsPemsDelete(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyJobResponse>>;
-    public jobsPemsDelete(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsPemsDelete(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyJobResponse>;
+    public jobsPemsDelete(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyJobResponse>>;
+    public jobsPemsDelete(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyJobResponse>>;
+    public jobsPemsDelete(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsPemsDelete.');
         }
@@ -3665,10 +3465,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3685,7 +3481,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyJobResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3703,10 +3498,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsSearch(attribute: string, value: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleJobResponse>;
-    public jobsSearch(attribute: string, value: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleJobResponse>>;
-    public jobsSearch(attribute: string, value: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleJobResponse>>;
-    public jobsSearch(attribute: string, value: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsSearch(attribute: string, value: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleJobResponse>;
+    public jobsSearch(attribute: string, value: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleJobResponse>>;
+    public jobsSearch(attribute: string, value: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleJobResponse>>;
+    public jobsSearch(attribute: string, value: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (attribute === null || attribute === undefined) {
             throw new Error('Required parameter attribute was null or undefined when calling jobsSearch.');
         }
@@ -3747,10 +3542,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3767,7 +3558,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "attribute", value: attribute, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleJobResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3784,10 +3574,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public jobsStatus(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<JobStatusResponse>;
-    public jobsStatus(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<JobStatusResponse>>;
-    public jobsStatus(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<JobStatusResponse>>;
-    public jobsStatus(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public jobsStatus(jobId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<JobStatusResponse>;
+    public jobsStatus(jobId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<JobStatusResponse>>;
+    public jobsStatus(jobId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<JobStatusResponse>>;
+    public jobsStatus(jobId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (jobId === null || jobId === undefined) {
             throw new Error('Required parameter jobId was null or undefined when calling jobsStatus.');
         }
@@ -3825,10 +3615,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -3845,7 +3631,6 @@ export class DefaultService {
         let localVarPath = `/jobs/v2/${this.configuration.encodeParam({name: "jobId", value: jobId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/status`;
         return this.httpClient.request<JobStatusResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -3863,10 +3648,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataResponse>;
-    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataResponse>>;
-    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataResponse>>;
-    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataResponse>;
+    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataResponse>>;
+    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataResponse>>;
+    public metadataAddUpdate(uuid: string, metadataRequest: MetadataRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataAddUpdate.');
         }
@@ -3907,10 +3692,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -3936,7 +3717,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -3954,10 +3734,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataResponse>;
-    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataResponse>>;
-    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataResponse>>;
-    public metadataCreate(metadataRequest: MetadataRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataResponse>;
+    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataResponse>>;
+    public metadataCreate(metadataRequest: MetadataRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataResponse>>;
+    public metadataCreate(metadataRequest: MetadataRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (metadataRequest === null || metadataRequest === undefined) {
             throw new Error('Required parameter metadataRequest was null or undefined when calling metadataCreate.');
         }
@@ -3995,10 +3775,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -4024,7 +3800,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data`;
         return this.httpClient.request<MetadataResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4042,10 +3817,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataDelete.');
         }
@@ -4083,10 +3858,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4103,7 +3874,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4120,10 +3890,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataResponse>;
-    public metadataGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataResponse>>;
-    public metadataGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataResponse>>;
-    public metadataGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataResponse>;
+    public metadataGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataResponse>>;
+    public metadataGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataResponse>>;
+    public metadataGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataGet.');
         }
@@ -4161,10 +3931,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4181,7 +3947,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4198,10 +3963,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataList(q: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleMetadataResponse>;
-    public metadataList(q: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleMetadataResponse>>;
-    public metadataList(q: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleMetadataResponse>>;
-    public metadataList(q: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataList(q: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleMetadataResponse>;
+    public metadataList(q: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleMetadataResponse>>;
+    public metadataList(q: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleMetadataResponse>>;
+    public metadataList(q: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (q === null || q === undefined) {
             throw new Error('Required parameter q was null or undefined when calling metadataList.');
         }
@@ -4245,10 +4010,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4265,7 +4026,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data`;
         return this.httpClient.request<MultipleMetadataResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4284,10 +4044,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataPermissionResponse>;
-    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataPermissionResponse>>;
-    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataPermissionResponse>>;
-    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataPermissionResponse>;
+    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataPermissionResponse>>;
+    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataPermissionResponse>>;
+    public metadataPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsAddUpdate.');
         }
@@ -4328,10 +4088,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -4357,7 +4113,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<MetadataPermissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4377,10 +4132,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataPermissionResponse>;
-    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataPermissionResponse>>;
-    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataPermissionResponse>>;
-    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataPermissionResponse>;
+    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataPermissionResponse>>;
+    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataPermissionResponse>>;
+    public metadataPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsAddUpdateByUser.');
         }
@@ -4424,10 +4179,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -4453,7 +4204,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataPermissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4472,10 +4222,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsDelete(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataPemsDelete(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataPemsDelete(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataPemsDelete(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsDelete(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataPemsDelete(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataPemsDelete(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataPemsDelete(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsDelete.');
         }
@@ -4516,10 +4266,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4536,7 +4282,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4553,10 +4298,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsDeleteByUser(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataPemsDeleteByUser(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataPemsDeleteByUser(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataPemsDeleteByUser(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsDeleteByUser(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataPemsDeleteByUser(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataPemsDeleteByUser(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataPemsDeleteByUser(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsDeleteByUser.');
         }
@@ -4594,10 +4339,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4614,7 +4355,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4632,10 +4372,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataPermissionResponse>;
-    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataPermissionResponse>>;
-    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataPermissionResponse>>;
-    public metadataPemsGetByUser(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataPermissionResponse>;
+    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataPermissionResponse>>;
+    public metadataPemsGetByUser(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataPermissionResponse>>;
+    public metadataPemsGetByUser(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsGetByUser.');
         }
@@ -4676,10 +4416,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4696,7 +4432,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4713,10 +4448,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataPemsList(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleMetadataPermissionResponse>;
-    public metadataPemsList(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleMetadataPermissionResponse>>;
-    public metadataPemsList(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleMetadataPermissionResponse>>;
-    public metadataPemsList(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataPemsList(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleMetadataPermissionResponse>;
+    public metadataPemsList(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleMetadataPermissionResponse>>;
+    public metadataPemsList(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleMetadataPermissionResponse>>;
+    public metadataPemsList(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataPemsList.');
         }
@@ -4754,10 +4489,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -4774,7 +4505,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/data/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<MultipleMetadataPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -4792,10 +4522,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaResponse>;
-    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaResponse>>;
-    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaResponse>>;
-    public metadataSchemasAddUpdate(uuid: string, body: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaResponse>;
+    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaResponse>>;
+    public metadataSchemasAddUpdate(uuid: string, body: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaResponse>>;
+    public metadataSchemasAddUpdate(uuid: string, body: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasAddUpdate.');
         }
@@ -4836,10 +4566,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -4865,7 +4591,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataSchemaResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: body,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4883,10 +4608,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasCreate(body: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaResponse>;
-    public metadataSchemasCreate(body: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaResponse>>;
-    public metadataSchemasCreate(body: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaResponse>>;
-    public metadataSchemasCreate(body: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasCreate(body: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaResponse>;
+    public metadataSchemasCreate(body: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaResponse>>;
+    public metadataSchemasCreate(body: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaResponse>>;
+    public metadataSchemasCreate(body: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (body === null || body === undefined) {
             throw new Error('Required parameter body was null or undefined when calling metadataSchemasCreate.');
         }
@@ -4924,10 +4649,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -4953,7 +4674,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas`;
         return this.httpClient.request<MetadataSchemaResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: body,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -4971,10 +4691,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataSchemasDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataSchemasDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataSchemasDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataSchemasDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataSchemasDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataSchemasDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasDelete.');
         }
@@ -5012,10 +4732,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5032,7 +4748,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5049,10 +4764,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaResponse>;
-    public metadataSchemasGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaResponse>>;
-    public metadataSchemasGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaResponse>>;
-    public metadataSchemasGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaResponse>;
+    public metadataSchemasGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaResponse>>;
+    public metadataSchemasGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaResponse>>;
+    public metadataSchemasGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasGet.');
         }
@@ -5090,10 +4805,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5110,7 +4821,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataSchemaResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5126,10 +4836,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaResponse>;
-    public metadataSchemasList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaResponse>>;
-    public metadataSchemasList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaResponse>>;
-    public metadataSchemasList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaResponse>;
+    public metadataSchemasList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaResponse>>;
+    public metadataSchemasList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaResponse>>;
+    public metadataSchemasList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -5164,10 +4874,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5184,7 +4890,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas`;
         return this.httpClient.request<MetadataSchemaResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5202,10 +4907,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaPermissionResponse>;
-    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaPermissionResponse>;
+    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsAddUpdate(uuid: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsAddUpdate.');
         }
@@ -5246,10 +4951,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -5275,7 +4976,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<MetadataSchemaPermissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -5295,10 +4995,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaPermissionResponse>;
-    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaPermissionResponse>;
+    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsAddUpdateByUser(uuid: string, username: string, metadataPermissionRequest: MetadataPermissionRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsAddUpdateByUser.');
         }
@@ -5342,10 +5042,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -5371,7 +5067,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataSchemaPermissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: metadataPermissionRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -5389,10 +5084,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataSchemasPemsDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataSchemasPemsDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataSchemasPemsDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataSchemasPemsDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataSchemasPemsDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataSchemasPemsDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsDelete.');
         }
@@ -5430,10 +5125,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5450,7 +5141,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5468,10 +5158,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MetadataSchemaPermissionResponse>;
-    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MetadataSchemaPermissionResponse>;
+    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsDeleteByUser(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsDeleteByUser.');
         }
@@ -5512,10 +5202,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5532,7 +5218,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MetadataSchemaPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5550,10 +5235,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyMetadataResponse>;
-    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyMetadataResponse>>;
-    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyMetadataResponse>>;
-    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyMetadataResponse>;
+    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyMetadataResponse>>;
+    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyMetadataResponse>>;
+    public metadataSchemasPemsDeleteByUserAndUuid(uuid: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsDeleteByUserAndUuid.');
         }
@@ -5594,10 +5279,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5614,7 +5295,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyMetadataResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5631,10 +5311,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public metadataSchemasPemsList(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleMetadataSchemaPermissionResponse>;
-    public metadataSchemasPemsList(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleMetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsList(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleMetadataSchemaPermissionResponse>>;
-    public metadataSchemasPemsList(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public metadataSchemasPemsList(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleMetadataSchemaPermissionResponse>;
+    public metadataSchemasPemsList(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleMetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsList(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleMetadataSchemaPermissionResponse>>;
+    public metadataSchemasPemsList(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling metadataSchemasPemsList.');
         }
@@ -5672,10 +5352,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5692,7 +5368,6 @@ export class DefaultService {
         let localVarPath = `/meta/v2/schemas/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/pems`;
         return this.httpClient.request<MultipleMetadataSchemaPermissionResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5709,10 +5384,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public notificationsV2ByUuidDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptyNotificationResponse>;
-    public notificationsV2ByUuidDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptyNotificationResponse>>;
-    public notificationsV2ByUuidDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptyNotificationResponse>>;
-    public notificationsV2ByUuidDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public notificationsV2ByUuidDelete(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptyNotificationResponse>;
+    public notificationsV2ByUuidDelete(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptyNotificationResponse>>;
+    public notificationsV2ByUuidDelete(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptyNotificationResponse>>;
+    public notificationsV2ByUuidDelete(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling notificationsV2ByUuidDelete.');
         }
@@ -5750,10 +5425,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5770,7 +5441,6 @@ export class DefaultService {
         let localVarPath = `/notifications/v2/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptyNotificationResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5787,10 +5457,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public notificationsV2ByUuidGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<NotificationResponse>;
-    public notificationsV2ByUuidGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<NotificationResponse>>;
-    public notificationsV2ByUuidGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<NotificationResponse>>;
-    public notificationsV2ByUuidGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public notificationsV2ByUuidGet(uuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<NotificationResponse>;
+    public notificationsV2ByUuidGet(uuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<NotificationResponse>>;
+    public notificationsV2ByUuidGet(uuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<NotificationResponse>>;
+    public notificationsV2ByUuidGet(uuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling notificationsV2ByUuidGet.');
         }
@@ -5828,10 +5498,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -5848,7 +5514,6 @@ export class DefaultService {
         let localVarPath = `/notifications/v2/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<NotificationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -5866,10 +5531,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<NotificationResponse>;
-    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<NotificationResponse>>;
-    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<NotificationResponse>>;
-    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<NotificationResponse>;
+    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<NotificationResponse>>;
+    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<NotificationResponse>>;
+    public notificationsV2ByUuidPost(uuid: string, notificationRequest: NotificationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (uuid === null || uuid === undefined) {
             throw new Error('Required parameter uuid was null or undefined when calling notificationsV2ByUuidPost.');
         }
@@ -5910,10 +5575,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -5939,7 +5600,6 @@ export class DefaultService {
         let localVarPath = `/notifications/v2/${this.configuration.encodeParam({name: "uuid", value: uuid, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<NotificationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: notificationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -5957,10 +5617,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public notificationsV2Get(associatedUuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleNotificationResponse>;
-    public notificationsV2Get(associatedUuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleNotificationResponse>>;
-    public notificationsV2Get(associatedUuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleNotificationResponse>>;
-    public notificationsV2Get(associatedUuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public notificationsV2Get(associatedUuid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleNotificationResponse>;
+    public notificationsV2Get(associatedUuid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleNotificationResponse>>;
+    public notificationsV2Get(associatedUuid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleNotificationResponse>>;
+    public notificationsV2Get(associatedUuid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (associatedUuid === null || associatedUuid === undefined) {
             throw new Error('Required parameter associatedUuid was null or undefined when calling notificationsV2Get.');
         }
@@ -6004,10 +5664,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6024,7 +5680,6 @@ export class DefaultService {
         let localVarPath = `/notifications/v2/`;
         return this.httpClient.request<MultipleNotificationResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6042,10 +5697,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<NotificationResponse>;
-    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<NotificationResponse>>;
-    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<NotificationResponse>>;
-    public notificationsV2Post(notificationRequest: NotificationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<NotificationResponse>;
+    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<NotificationResponse>>;
+    public notificationsV2Post(notificationRequest: NotificationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<NotificationResponse>>;
+    public notificationsV2Post(notificationRequest: NotificationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (notificationRequest === null || notificationRequest === undefined) {
             throw new Error('Required parameter notificationRequest was null or undefined when calling notificationsV2Post.');
         }
@@ -6083,10 +5738,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6112,7 +5763,6 @@ export class DefaultService {
         let localVarPath = `/notifications/v2/`;
         return this.httpClient.request<NotificationResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: notificationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6130,10 +5780,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postitsV2ByNonceDelete(nonce: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SinglePostItResponse>;
-    public postitsV2ByNonceDelete(nonce: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SinglePostItResponse>>;
-    public postitsV2ByNonceDelete(nonce: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SinglePostItResponse>>;
-    public postitsV2ByNonceDelete(nonce: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public postitsV2ByNonceDelete(nonce: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SinglePostItResponse>;
+    public postitsV2ByNonceDelete(nonce: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SinglePostItResponse>>;
+    public postitsV2ByNonceDelete(nonce: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SinglePostItResponse>>;
+    public postitsV2ByNonceDelete(nonce: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (nonce === null || nonce === undefined) {
             throw new Error('Required parameter nonce was null or undefined when calling postitsV2ByNonceDelete.');
         }
@@ -6171,10 +5821,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6191,7 +5837,6 @@ export class DefaultService {
         let localVarPath = `/postits/v2/${this.configuration.encodeParam({name: "nonce", value: nonce, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SinglePostItResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -6207,10 +5852,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postitsV2Get(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultiplePostItResponse>;
-    public postitsV2Get(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultiplePostItResponse>>;
-    public postitsV2Get(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultiplePostItResponse>>;
-    public postitsV2Get(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public postitsV2Get(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultiplePostItResponse>;
+    public postitsV2Get(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultiplePostItResponse>>;
+    public postitsV2Get(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultiplePostItResponse>>;
+    public postitsV2Get(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -6245,10 +5890,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6265,7 +5906,6 @@ export class DefaultService {
         let localVarPath = `/postits/v2/`;
         return this.httpClient.request<MultiplePostItResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -6282,10 +5922,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public postitsV2Post(postItRequest: PostItRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PostIt>;
-    public postitsV2Post(postItRequest: PostItRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PostIt>>;
-    public postitsV2Post(postItRequest: PostItRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PostIt>>;
-    public postitsV2Post(postItRequest: PostItRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public postitsV2Post(postItRequest: PostItRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PostIt>;
+    public postitsV2Post(postItRequest: PostItRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PostIt>>;
+    public postitsV2Post(postItRequest: PostItRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PostIt>>;
+    public postitsV2Post(postItRequest: PostItRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (postItRequest === null || postItRequest === undefined) {
             throw new Error('Required parameter postItRequest was null or undefined when calling postitsV2Post.');
         }
@@ -6323,10 +5963,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6352,7 +5988,6 @@ export class DefaultService {
         let localVarPath = `/postits/v2/`;
         return this.httpClient.request<PostIt>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: postItRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6370,10 +6005,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsCreate(systemRequest: SystemRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleSystemResponse>;
-    public systemsCreate(systemRequest: SystemRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleSystemResponse>>;
-    public systemsCreate(systemRequest: SystemRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleSystemResponse>>;
-    public systemsCreate(systemRequest: SystemRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsCreate(systemRequest: SystemRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleSystemResponse>;
+    public systemsCreate(systemRequest: SystemRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleSystemResponse>>;
+    public systemsCreate(systemRequest: SystemRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleSystemResponse>>;
+    public systemsCreate(systemRequest: SystemRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemRequest === null || systemRequest === undefined) {
             throw new Error('Required parameter systemRequest was null or undefined when calling systemsCreate.');
         }
@@ -6411,10 +6046,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6440,7 +6071,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/`;
         return this.httpClient.request<SingleSystemResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: systemRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6458,10 +6088,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsGetByID(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleSystemResponse>;
-    public systemsGetByID(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleSystemResponse>>;
-    public systemsGetByID(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleSystemResponse>>;
-    public systemsGetByID(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsGetByID(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleSystemResponse>;
+    public systemsGetByID(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleSystemResponse>>;
+    public systemsGetByID(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleSystemResponse>>;
+    public systemsGetByID(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsGetByID.');
         }
@@ -6499,10 +6129,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6519,7 +6145,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleSystemResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -6538,10 +6163,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleSystemResponse>;
-    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleSystemResponse>>;
-    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleSystemResponse>>;
-    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleSystemResponse>;
+    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleSystemResponse>>;
+    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleSystemResponse>>;
+    public systemsList(type?: 'STORAGE' | 'EXECUTION', _default?: boolean, _public?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (type !== undefined && type !== null) {
@@ -6590,10 +6215,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6610,7 +6231,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/`;
         return this.httpClient.request<MultipleSystemResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6629,10 +6249,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptySystemResponse>;
-    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptySystemResponse>>;
-    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptySystemResponse>>;
-    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptySystemResponse>;
+    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptySystemResponse>>;
+    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptySystemResponse>>;
+    public systemsPut(systemId: string, systemOperationRequest: SystemOperationRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsPut.');
         }
@@ -6673,10 +6293,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6702,7 +6318,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptySystemResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: systemOperationRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6721,10 +6336,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptySystemResponse>;
-    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptySystemResponse>>;
-    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptySystemResponse>>;
-    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptySystemResponse>;
+    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptySystemResponse>>;
+    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptySystemResponse>>;
+    public systemsRolesAddUpdate(systemId: string, systemRole: SystemRole, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsRolesAddUpdate.');
         }
@@ -6765,10 +6380,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6794,7 +6405,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/roles`;
         return this.httpClient.request<EmptySystemResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: systemRole,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6814,10 +6424,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptySystemResponse>;
-    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptySystemResponse>>;
-    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptySystemResponse>>;
-    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptySystemResponse>;
+    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptySystemResponse>>;
+    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptySystemResponse>>;
+    public systemsRolesAddUpdateByUsername(systemId: string, username: string, systemRole: SystemRole, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsRolesAddUpdateByUsername.');
         }
@@ -6861,10 +6471,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -6890,7 +6496,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/roles/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptySystemResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: systemRole,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -6908,10 +6513,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsRolesDelete(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptySystemResponse>;
-    public systemsRolesDelete(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptySystemResponse>>;
-    public systemsRolesDelete(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptySystemResponse>>;
-    public systemsRolesDelete(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsRolesDelete(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptySystemResponse>;
+    public systemsRolesDelete(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptySystemResponse>>;
+    public systemsRolesDelete(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptySystemResponse>>;
+    public systemsRolesDelete(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsRolesDelete.');
         }
@@ -6949,10 +6554,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -6969,7 +6570,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/roles`;
         return this.httpClient.request<EmptySystemResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -6987,10 +6587,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleSystemRoleResponse>;
-    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleSystemRoleResponse>>;
-    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleSystemRoleResponse>>;
-    public systemsRolesGetByUsername(systemId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleSystemRoleResponse>;
+    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleSystemRoleResponse>>;
+    public systemsRolesGetByUsername(systemId: string, username: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleSystemRoleResponse>>;
+    public systemsRolesGetByUsername(systemId: string, username: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsRolesGetByUsername.');
         }
@@ -7031,10 +6631,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -7051,7 +6647,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/roles/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<MultipleSystemRoleResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -7068,10 +6663,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsV2BySystemIdDelete(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmptySystemResponse>;
-    public systemsV2BySystemIdDelete(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmptySystemResponse>>;
-    public systemsV2BySystemIdDelete(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmptySystemResponse>>;
-    public systemsV2BySystemIdDelete(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsV2BySystemIdDelete(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<EmptySystemResponse>;
+    public systemsV2BySystemIdDelete(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<EmptySystemResponse>>;
+    public systemsV2BySystemIdDelete(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<EmptySystemResponse>>;
+    public systemsV2BySystemIdDelete(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsV2BySystemIdDelete.');
         }
@@ -7109,10 +6704,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -7129,7 +6720,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<EmptySystemResponse>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -7147,10 +6737,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SingleSystemResponse>;
-    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SingleSystemResponse>>;
-    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SingleSystemResponse>>;
-    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<SingleSystemResponse>;
+    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<SingleSystemResponse>>;
+    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<SingleSystemResponse>>;
+    public systemsV2BySystemIdPost(systemId: string, systemRequest: SystemRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsV2BySystemIdPost.');
         }
@@ -7191,10 +6781,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         // to determine the Content-Type header
@@ -7220,7 +6806,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SingleSystemResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 body: systemRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -7238,10 +6823,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<MultipleSystemRoleResponse>;
-    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<MultipleSystemRoleResponse>>;
-    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<MultipleSystemRoleResponse>>;
-    public systemsV2RolesBySystemIdGet(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<MultipleSystemRoleResponse>;
+    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<MultipleSystemRoleResponse>>;
+    public systemsV2RolesBySystemIdGet(systemId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<MultipleSystemRoleResponse>>;
+    public systemsV2RolesBySystemIdGet(systemId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
         if (systemId === null || systemId === undefined) {
             throw new Error('Required parameter systemId was null or undefined when calling systemsV2RolesBySystemIdGet.');
         }
@@ -7279,10 +6864,6 @@ export class DefaultService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
 
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
@@ -7299,7 +6880,6 @@ export class DefaultService {
         let localVarPath = `/systems/v2/${this.configuration.encodeParam({name: "systemId", value: systemId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/roles`;
         return this.httpClient.request<MultipleSystemRoleResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
-                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

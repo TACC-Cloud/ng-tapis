@@ -12,9 +12,9 @@ the Api client automatically from the openapi.yaml file using `openapi-generator
 
 ```
 npm run gen
-cd dist/ng-tapis
+cd projects/ng-tapis
 npm run build
-npm publish
+npm publish dist/
 ```
 
 
