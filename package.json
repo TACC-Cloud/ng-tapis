@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build ng-tapis",
-    "gen": "openapi-generator-cli generate -i ./openapi.yaml -g typescript-angular -o ./projects/ng-tapis/ --additional-properties npmName=ng-tapis,ngVersion=13,npmVersion=2.1.13"
+    "gen": "openapi-generator-cli generate -i ./openapi.yaml -g typescript-angular -o ./projects/ng-tapis/ --additional-properties npmName=ng-tapis,ngVersion=12,npmVersion=2.1.12"
   },
   "dependencies": {
     "@angular/cli": "^15.2.4"
