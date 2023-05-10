@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: "2.0.0"
+  version: "2.0.1"
   title: Tapis API
   description: >-
     <h2> Your Science-as-a-Service API Platform. </h2>
@@ -11,9 +11,7 @@ info:
     email: aci@tacc.utexas.edu
 tags: []
 servers:
-  - url: 'https://api.tacc.utexas.edu/'
   - url: 'https://agave.designsafe-ci.org/'
-  - url: 'https://localhost:8080/'
 security: 
   - Oauth: []
   - bearerAuth: []
